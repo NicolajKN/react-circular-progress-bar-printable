@@ -101,10 +101,6 @@ const Flat: React.FC<IFlat> = ({
           cx="55"
           cy="55"
           r="50"
-          style={{
-            transition: 'stroke-dashoffset ease-in-out',
-            transitionDuration: loadingTime.toString().concat('ms')
-          }}
           strokeWidth={sx.barWidth}
           transform={setRotate()}
           fill="none"
@@ -180,9 +176,6 @@ const Flat: React.FC<IFlat> = ({
             position: 'absolute',
             top: 0,
             zIndex: '50',
-            transition: 'transform ease-in-out',
-            MozTransition: 'transform ease-in-out',
-            transitionDuration: loadingTime.toString().concat('ms'),
             display: 'block'
           }}
           transform={`rotate(${(afterProgress) * (3.6 / (range.to / 100)) - setAngle()}, 0, 0)`}>
