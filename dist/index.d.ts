@@ -1,3 +1,5 @@
+import React from 'react';
+
 interface IFlat {
    progress: number
    range?: { from: number, to: number }
@@ -108,4 +110,10 @@ type FontFamily =
 'Webdings' |
 'Wingdings'
 
-export { IFlat, IHeat, INested, SignPosition };
+declare const Flat: React.FC<IFlat>;
+
+declare const Heat: React.FC<IHeat>;
+
+declare const Nested: React.FC<INested>;
+
+export { Flat, Heat, Nested };

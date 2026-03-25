@@ -14,7 +14,15 @@
     "deploy": "gh-pages -d build"
   },
   "main": "./dist/index.js",
-  "exports": "./dist/index.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.js"
+    }
+  },
   "dependencies": {
     "babel-plugin-prismjs": "^2.1.0",
     "prismjs": "^1.29.0",
