@@ -108,7 +108,8 @@ const Flat: React.FC<IFlat> = ({
     }
   }, [progress, shape, isVisible]);
 
-  const dasharray = 2 * Math.PI * 50;
+  const radius = 55 - barWidth / 2;
+  const dasharray = 2 * Math.PI * radius;
   const dashoffset = (1 - (afterProgress + range.from) / range.to) * dasharray;
 
   return (
@@ -117,7 +118,7 @@ const Flat: React.FC<IFlat> = ({
         <circle
           cx="55"
           cy="55"
-          r="50"
+          r={radius}
           strokeWidth={sx.barWidth}
           transform={setRotate()}
           fill="none"
@@ -198,7 +199,7 @@ const Flat: React.FC<IFlat> = ({
         <circle
           cx="55"
           cy="55"
-          r="50"
+          r={radius}
           fill="none"
           stroke={sx.bgStrokeColor ?? "white"}
           strokeWidth={sx.barWidth - 0.3}
@@ -212,6 +213,7 @@ const Flat: React.FC<IFlat> = ({
       {showMiniCircle && (
         <svg
           viewBox="0 0 110 110"
+          overflow="visible"
           style={{
             position: "absolute",
             top: 0,
@@ -222,7 +224,7 @@ const Flat: React.FC<IFlat> = ({
         >
           <circle
             cx="55"
-            cy="5"
+            cy={55 - radius}
             r={miniCircleSize}
             fill={miniCircleColor}
           ></circle>
@@ -235,7 +237,7 @@ const Flat: React.FC<IFlat> = ({
         <circle
           cx="55"
           cy="55"
-          r={50 - sx.barWidth / 2}
+          r={radius - barWidth / 2}
           fill={`${bgColor.value + bgColor.transparency}`}
         />
       </svg>

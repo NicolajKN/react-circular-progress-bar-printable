@@ -99,7 +99,7 @@ ${checkFlatSx(props).join(",\n")}
             <input
               type="range"
               min="1"
-              max="10"
+              max="20"
               value={props.flatOptions.strokeWidth}
               onChange={(e) =>
                 props.setFlatOptions({
