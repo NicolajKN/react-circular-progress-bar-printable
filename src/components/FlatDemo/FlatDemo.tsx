@@ -1,41 +1,40 @@
-import React, { useState } from 'react';
-import { Flat } from '../../../lib';
-import { IFlatOptions } from '../../types';
-import Settings from './Settings';
+import React, { useState } from "react";
+import { Flat } from "../../../lib";
+import { IFlatOptions } from "../../types";
+import Settings from "./Settings";
 
 const FlatDemo: React.FC = () => {
-  const [flatOptions, setFlatOptions] = useState<IFlatOptions>(
-    {
-      strokeColor: '#ff0000',
-      range: { from: 0, to: 100 },
-      strokeWidth: 5,
-      valueSize: 30,
-      textSize: 14,
-      valueWeight: 'normal',
-      textWeight: 'normal',
-      valueFamily: 'Trebuchet MS',
-      textFamily: 'Trebuchet MS',
-      valueColor: '#000000',
-      textColor: '#000000',
-      showValue: true,
-      loadingTime: 1000,
-      text: 'Lorem ipsum',
-      strokeLinecap: 'round',
-      bgStrokeColor: '#ffffff',
-      bgColor: { value: '#ffffff', transparency: '20' },
-      shape: 'full',
-      showMiniCircle: true,
-      miniCircleColor: '#ff0000',
-      miniCircleSize: 5,
-      valueAnimation: true,
-      intersectionEnabled: true,
-      sign: { value: '%', position: 'end' }
-    }
-  );
+  const [flatOptions, setFlatOptions] = useState<IFlatOptions>({
+    strokeColor: "#ff0000",
+    range: { from: 0, to: 100 },
+    strokeWidth: 5,
+    valueSize: 30,
+    textSize: 14,
+    valueWeight: "normal",
+    textWeight: "normal",
+    valueFamily: "Trebuchet MS",
+    textFamily: "Trebuchet MS",
+    valueColor: "#000000",
+    textColor: "#000000",
+    showValue: true,
+    loadingTime: 1000,
+    text: "Lorem ipsum",
+    strokeLinecap: "round",
+    bgStrokeColor: "#ffffff",
+    bgColor: { value: "#ffffff", transparency: "20" },
+    shape: "full",
+    showMiniCircle: true,
+    miniCircleColor: "#ff0000",
+    miniCircleSize: 5,
+    valueAnimation: true,
+    intersectionEnabled: true,
+    shadow: true,
+    sign: { value: "%", position: "end" },
+  });
   const [progress, setProgress] = useState(flatOptions.range.to / 2);
   return (
-    <div className='flex flex-col items-center gap-2'>
-      <div className='w-56'>
+    <div className="flex flex-col items-center gap-2">
+      <div className="w-56">
         <Flat
           progress={progress}
           range={{ from: flatOptions.range.from, to: flatOptions.range.to }}
@@ -62,12 +61,13 @@ const FlatDemo: React.FC = () => {
             miniCircleColor: flatOptions.miniCircleColor,
             miniCircleSize: flatOptions.miniCircleSize,
             valueAnimation: flatOptions.valueAnimation,
-            intersectionEnabled: flatOptions.intersectionEnabled
+            intersectionEnabled: flatOptions.intersectionEnabled,
+            shadow: flatOptions.shadow,
           }}
         />
       </div>
-      <div className='w-fit'>
-        <Settings {...{ setFlatOptions, flatOptions, setProgress, progress }}/>
+      <div className="w-fit">
+        <Settings {...{ setFlatOptions, flatOptions, setProgress, progress }} />
       </div>
     </div>
   );

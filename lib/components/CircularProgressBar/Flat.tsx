@@ -32,6 +32,7 @@ const Flat: React.FC<IFlat> = ({
     intersectionEnabled = false,
     miniCircleSize = 5,
     miniCircleColor = "#ff0000",
+    shadow = true,
   } = sx;
 
   const [afterProgress, setAfterProgress] = useState(() => {
@@ -185,9 +186,11 @@ const Flat: React.FC<IFlat> = ({
             position: "absolute",
             top: 0,
             // zIndex: -10,
-            "--ds1": "drop-shadow(0 10px 8px rgb(0 0 0 / 0.04))",
-            "--ds2": "drop-shadow(0 4px 3px rgb(0 0 0 / 0.1))",
-            filter: "var(--ds1) var(--ds2)",
+            ...(shadow && {
+              "--ds1": "drop-shadow(0 10px 8px rgb(0 0 0 / 0.04))",
+              "--ds2": "drop-shadow(0 4px 3px rgb(0 0 0 / 0.1))",
+              filter: "var(--ds1) var(--ds2)",
+            }),
             display: "block",
           } as CSSProperties
         }
